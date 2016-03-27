@@ -1,0 +1,12 @@
+@namespace("com.jana.karim.avro.model.destination")
+protocol Customer {
+    record Name {
+      string id;
+      string name;
+      string nickname;
+    }
+    record MailAddress {
+      string id;
+      string city;
+    }
+}
