@@ -49,7 +49,7 @@
                             <goal>idl-protocol</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${main.basedir}/src/main/avro</sourceDirectory>
+                            <sourceDirectory>${main.basedir}/src/main/avro/schemas</sourceDirectory>
                             <outputDirectory>${main.basedir}/src/main/java</outputDirectory>
                         </configuration>
                     </execution>

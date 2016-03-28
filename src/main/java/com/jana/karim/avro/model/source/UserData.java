@@ -8,7 +8,7 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public interface UserData {
-  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"UserData\",\"namespace\":\"com.jana.karim.avro.model.source\",\"types\":[{\"type\":\"record\",\"name\":\"User\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]},{\"type\":\"record\",\"name\":\"Address\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"}]}],\"messages\":{}}");
+  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"UserData\",\"namespace\":\"com.jana.karim.avro.model.source\",\"types\":[{\"type\":\"record\",\"name\":\"User\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]},{\"type\":\"record\",\"name\":\"Address\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"name_id\",\"type\":\"string\"}]}],\"messages\":{}}");
 
   @SuppressWarnings("all")
   public interface Callback extends UserData {

@@ -8,5 +8,6 @@ protocol UserData {
     record Address {
       string id;
       string city;
+      string name_id;
     }
 }

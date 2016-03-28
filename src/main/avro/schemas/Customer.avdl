@@ -6,7 +6,6 @@ protocol Customer {
       string nickname;
     }
     record MailAddress {
-      string id;
-      string city;
+      array<string> city;
     }
 }
