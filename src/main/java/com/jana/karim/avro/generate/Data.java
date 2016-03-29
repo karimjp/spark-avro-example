@@ -19,32 +19,32 @@ public class Data {
                 + "/src/main/avro/data/";
 
         User user1 = new User();
-        user1.setId("1");
+        user1.setNameId("1");
         user1.setName("User1");
         user1.setNickname("user1_nickname");
         User user2 = new User();
-        user2.setId("2");
+        user2.setNameId("2");
         user2.setName("User2");
         user2.setNickname("user2_nickname");
         User user3 = new User();
-        user3.setId("3");
+        user3.setNameId("3");
         user3.setName("User3");
         user3.setNickname("user3_nickname");
 
         Address address1 = new Address();
-        address1.setId("1");
+        address1.setAddressId("1");
         address1.setCity("City1");
         address1.setNameId("1");
         Address address2 = new Address();
-        address2.setId("2");
+        address2.setAddressId("2");
         address2.setCity("City2");
         address2.setNameId("2");
         Address address3 = new Address();
-        address3.setId("3");
+        address3.setAddressId("3");
         address3.setCity("City3");
         address3.setNameId("3");
         Address address4 = new Address();
-        address4.setId("4");
+        address4.setAddressId("4");
         address4.setCity("City4");
         address4.setNameId("3");
 

@@ -1,12 +1,12 @@
 @namespace("com.jana.karim.avro.model.source")
 protocol UserData {
     record User {
-      string id;
+      string name_id;
       string name;
       string nickname;
     }
     record Address {
-      string id;
+      string address_id;
       string city;
       string name_id;
     }

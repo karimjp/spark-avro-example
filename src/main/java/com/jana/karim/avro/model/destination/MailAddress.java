@@ -7,10 +7,10 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class MailAddress extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3834694776629675000L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MailAddress\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"city\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
+  private static final long serialVersionUID = 1199541131448944841L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MailAddress\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"city\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  @Deprecated public java.util.List<java.lang.CharSequence> city;
+  @Deprecated public java.lang.CharSequence city;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -22,7 +22,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
   /**
    * All-args constructor.
    */
-  public MailAddress(java.util.List<java.lang.CharSequence> city) {
+  public MailAddress(java.lang.CharSequence city) {
     this.city = city;
   }
 
@@ -38,7 +38,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: city = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 0: city = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -46,7 +46,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
   /**
    * Gets the value of the 'city' field.
    */
-  public java.util.List<java.lang.CharSequence> getCity() {
+  public java.lang.CharSequence getCity() {
     return city;
   }
 
@@ -54,7 +54,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'city' field.
    * @param value the value to set.
    */
-  public void setCity(java.util.List<java.lang.CharSequence> value) {
+  public void setCity(java.lang.CharSequence value) {
     this.city = value;
   }
 
@@ -90,7 +90,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<MailAddress>
     implements org.apache.avro.data.RecordBuilder<MailAddress> {
 
-    private java.util.List<java.lang.CharSequence> city;
+    private java.lang.CharSequence city;
 
     /** Creates a new Builder */
     private Builder() {
@@ -125,7 +125,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'city' field.
       * @return The value.
       */
-    public java.util.List<java.lang.CharSequence> getCity() {
+    public java.lang.CharSequence getCity() {
       return city;
     }
 
@@ -134,7 +134,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'city'.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.destination.MailAddress.Builder setCity(java.util.List<java.lang.CharSequence> value) {
+    public com.jana.karim.avro.model.destination.MailAddress.Builder setCity(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.city = value;
       fieldSetFlags()[0] = true;
@@ -164,7 +164,7 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
     public MailAddress build() {
       try {
         MailAddress record = new MailAddress();
-        record.city = fieldSetFlags()[0] ? this.city : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[0]);
+        record.city = fieldSetFlags()[0] ? this.city : (java.lang.CharSequence) defaultValue(fields()[0]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

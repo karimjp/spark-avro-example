@@ -7,10 +7,10 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class User extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7562919378048594253L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 5114630137342561595L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"name_id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  @Deprecated public java.lang.CharSequence id;
+  @Deprecated public java.lang.CharSequence name_id;
   @Deprecated public java.lang.CharSequence name;
   @Deprecated public java.lang.CharSequence nickname;
 
@@ -24,8 +24,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   /**
    * All-args constructor.
    */
-  public User(java.lang.CharSequence id, java.lang.CharSequence name, java.lang.CharSequence nickname) {
-    this.id = id;
+  public User(java.lang.CharSequence name_id, java.lang.CharSequence name, java.lang.CharSequence nickname) {
+    this.name_id = name_id;
     this.name = name;
     this.nickname = nickname;
   }
@@ -34,7 +34,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return id;
+    case 0: return name_id;
     case 1: return name;
     case 2: return nickname;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -44,7 +44,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
+    case 0: name_id = (java.lang.CharSequence)value$; break;
     case 1: name = (java.lang.CharSequence)value$; break;
     case 2: nickname = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -52,18 +52,18 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /**
-   * Gets the value of the 'id' field.
+   * Gets the value of the 'name_id' field.
    */
-  public java.lang.CharSequence getId() {
-    return id;
+  public java.lang.CharSequence getNameId() {
+    return name_id;
   }
 
   /**
-   * Sets the value of the 'id' field.
+   * Sets the value of the 'name_id' field.
    * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
-    this.id = value;
+  public void setNameId(java.lang.CharSequence value) {
+    this.name_id = value;
   }
 
   /**
@@ -128,7 +128,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<User>
     implements org.apache.avro.data.RecordBuilder<User> {
 
-    private java.lang.CharSequence id;
+    private java.lang.CharSequence name_id;
     private java.lang.CharSequence name;
     private java.lang.CharSequence nickname;
 
@@ -143,8 +143,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
      */
     private Builder(com.jana.karim.avro.model.source.User.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.name_id)) {
+        this.name_id = data().deepCopy(fields()[0].schema(), other.name_id);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.name)) {
@@ -163,8 +163,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
      */
     private Builder(com.jana.karim.avro.model.source.User other) {
             super(com.jana.karim.avro.model.source.User.SCHEMA$);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.name_id)) {
+        this.name_id = data().deepCopy(fields()[0].schema(), other.name_id);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.name)) {
@@ -178,40 +178,40 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     }
 
     /**
-      * Gets the value of the 'id' field.
+      * Gets the value of the 'name_id' field.
       * @return The value.
       */
-    public java.lang.CharSequence getId() {
-      return id;
+    public java.lang.CharSequence getNameId() {
+      return name_id;
     }
 
     /**
-      * Sets the value of the 'id' field.
-      * @param value The value of 'id'.
+      * Sets the value of the 'name_id' field.
+      * @param value The value of 'name_id'.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.source.User.Builder setId(java.lang.CharSequence value) {
+    public com.jana.karim.avro.model.source.User.Builder setNameId(java.lang.CharSequence value) {
       validate(fields()[0], value);
-      this.id = value;
+      this.name_id = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
 
     /**
-      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+      * Checks whether the 'name_id' field has been set.
+      * @return True if the 'name_id' field has been set, false otherwise.
       */
-    public boolean hasId() {
+    public boolean hasNameId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'id' field.
+      * Clears the value of the 'name_id' field.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.source.User.Builder clearId() {
-      id = null;
+    public com.jana.karim.avro.model.source.User.Builder clearNameId() {
+      name_id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -298,7 +298,7 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     public User build() {
       try {
         User record = new User();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.name_id = fieldSetFlags()[0] ? this.name_id : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.nickname = fieldSetFlags()[2] ? this.nickname : (java.lang.CharSequence) defaultValue(fields()[2]);
         return record;

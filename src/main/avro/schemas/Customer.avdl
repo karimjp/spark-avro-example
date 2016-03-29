@@ -3,16 +3,16 @@ protocol Customer {
 
 
     record Name {
-      string id;
       string name;
       string nickname;
     }
     record MailAddress {
-      array<string> city;
+      string city;
     }
 
     record CustomerInfo {
+        string id;
         Name name;
-        MailAddress address;
+        array<MailAddress> addresses;
         }
 }

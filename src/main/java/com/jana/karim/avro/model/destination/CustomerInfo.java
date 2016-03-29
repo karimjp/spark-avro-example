@@ -7,11 +7,12 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3656533641652224945L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerInfo\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]}},{\"name\":\"address\",\"type\":{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}}]}");
+  private static final long serialVersionUID = 3191557350147213671L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerInfo\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]}},{\"name\":\"addresses\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":\"string\"}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
+  @Deprecated public java.lang.CharSequence id;
   @Deprecated public com.jana.karim.avro.model.destination.Name name;
-  @Deprecated public com.jana.karim.avro.model.destination.MailAddress address;
+  @Deprecated public java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -23,17 +24,19 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * All-args constructor.
    */
-  public CustomerInfo(com.jana.karim.avro.model.destination.Name name, com.jana.karim.avro.model.destination.MailAddress address) {
+  public CustomerInfo(java.lang.CharSequence id, com.jana.karim.avro.model.destination.Name name, java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses) {
+    this.id = id;
     this.name = name;
-    this.address = address;
+    this.addresses = addresses;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return name;
-    case 1: return address;
+    case 0: return id;
+    case 1: return name;
+    case 2: return addresses;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -41,10 +44,26 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: name = (com.jana.karim.avro.model.destination.Name)value$; break;
-    case 1: address = (com.jana.karim.avro.model.destination.MailAddress)value$; break;
+    case 0: id = (java.lang.CharSequence)value$; break;
+    case 1: name = (com.jana.karim.avro.model.destination.Name)value$; break;
+    case 2: addresses = (java.util.List<com.jana.karim.avro.model.destination.MailAddress>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
+  }
+
+  /**
+   * Gets the value of the 'id' field.
+   */
+  public java.lang.CharSequence getId() {
+    return id;
+  }
+
+  /**
+   * Sets the value of the 'id' field.
+   * @param value the value to set.
+   */
+  public void setId(java.lang.CharSequence value) {
+    this.id = value;
   }
 
   /**
@@ -63,18 +82,18 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   }
 
   /**
-   * Gets the value of the 'address' field.
+   * Gets the value of the 'addresses' field.
    */
-  public com.jana.karim.avro.model.destination.MailAddress getAddress() {
-    return address;
+  public java.util.List<com.jana.karim.avro.model.destination.MailAddress> getAddresses() {
+    return addresses;
   }
 
   /**
-   * Sets the value of the 'address' field.
+   * Sets the value of the 'addresses' field.
    * @param value the value to set.
    */
-  public void setAddress(com.jana.karim.avro.model.destination.MailAddress value) {
-    this.address = value;
+  public void setAddresses(java.util.List<com.jana.karim.avro.model.destination.MailAddress> value) {
+    this.addresses = value;
   }
 
   /**
@@ -109,10 +128,10 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CustomerInfo>
     implements org.apache.avro.data.RecordBuilder<CustomerInfo> {
 
+    private java.lang.CharSequence id;
     private com.jana.karim.avro.model.destination.Name name;
     private com.jana.karim.avro.model.destination.Name.Builder nameBuilder;
-    private com.jana.karim.avro.model.destination.MailAddress address;
-    private com.jana.karim.avro.model.destination.MailAddress.Builder addressBuilder;
+    private java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses;
 
     /** Creates a new Builder */
     private Builder() {
@@ -125,19 +144,20 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
      */
     private Builder(com.jana.karim.avro.model.destination.CustomerInfo.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.name)) {
-        this.name = data().deepCopy(fields()[0].schema(), other.name);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
+      }
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
+        fieldSetFlags()[1] = true;
       }
       if (other.hasNameBuilder()) {
         this.nameBuilder = com.jana.karim.avro.model.destination.Name.newBuilder(other.getNameBuilder());
       }
-      if (isValidValue(fields()[1], other.address)) {
-        this.address = data().deepCopy(fields()[1].schema(), other.address);
-        fieldSetFlags()[1] = true;
-      }
-      if (other.hasAddressBuilder()) {
-        this.addressBuilder = com.jana.karim.avro.model.destination.MailAddress.newBuilder(other.getAddressBuilder());
+      if (isValidValue(fields()[2], other.addresses)) {
+        this.addresses = data().deepCopy(fields()[2].schema(), other.addresses);
+        fieldSetFlags()[2] = true;
       }
     }
     
@@ -147,16 +167,58 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
      */
     private Builder(com.jana.karim.avro.model.destination.CustomerInfo other) {
             super(com.jana.karim.avro.model.destination.CustomerInfo.SCHEMA$);
-      if (isValidValue(fields()[0], other.name)) {
-        this.name = data().deepCopy(fields()[0].schema(), other.name);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      this.nameBuilder = null;
-      if (isValidValue(fields()[1], other.address)) {
-        this.address = data().deepCopy(fields()[1].schema(), other.address);
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
       }
-      this.addressBuilder = null;
+      this.nameBuilder = null;
+      if (isValidValue(fields()[2], other.addresses)) {
+        this.addresses = data().deepCopy(fields()[2].schema(), other.addresses);
+        fieldSetFlags()[2] = true;
+      }
+    }
+
+    /**
+      * Gets the value of the 'id' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getId() {
+      return id;
+    }
+
+    /**
+      * Sets the value of the 'id' field.
+      * @param value The value of 'id'.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setId(java.lang.CharSequence value) {
+      validate(fields()[0], value);
+      this.id = value;
+      fieldSetFlags()[0] = true;
+      return this; 
+    }
+
+    /**
+      * Checks whether the 'id' field has been set.
+      * @return True if the 'id' field has been set, false otherwise.
+      */
+    public boolean hasId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'id' field.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearId() {
+      id = null;
+      fieldSetFlags()[0] = false;
+      return this;
     }
 
     /**
@@ -173,10 +235,10 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
       * @return This builder.
       */
     public com.jana.karim.avro.model.destination.CustomerInfo.Builder setName(com.jana.karim.avro.model.destination.Name value) {
-      validate(fields()[0], value);
+      validate(fields()[1], value);
       this.nameBuilder = null;
       this.name = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[1] = true;
       return this; 
     }
 
@@ -185,7 +247,7 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
       * @return True if the 'name' field has been set, false otherwise.
       */
     public boolean hasName() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[1];
     }
 
     /**
@@ -228,80 +290,46 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
     public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearName() {
       name = null;
       nameBuilder = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'address' field.
+      * Gets the value of the 'addresses' field.
       * @return The value.
       */
-    public com.jana.karim.avro.model.destination.MailAddress getAddress() {
-      return address;
+    public java.util.List<com.jana.karim.avro.model.destination.MailAddress> getAddresses() {
+      return addresses;
     }
 
     /**
-      * Sets the value of the 'address' field.
-      * @param value The value of 'address'.
+      * Sets the value of the 'addresses' field.
+      * @param value The value of 'addresses'.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setAddress(com.jana.karim.avro.model.destination.MailAddress value) {
-      validate(fields()[1], value);
-      this.addressBuilder = null;
-      this.address = value;
-      fieldSetFlags()[1] = true;
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setAddresses(java.util.List<com.jana.karim.avro.model.destination.MailAddress> value) {
+      validate(fields()[2], value);
+      this.addresses = value;
+      fieldSetFlags()[2] = true;
       return this; 
     }
 
     /**
-      * Checks whether the 'address' field has been set.
-      * @return True if the 'address' field has been set, false otherwise.
+      * Checks whether the 'addresses' field has been set.
+      * @return True if the 'addresses' field has been set, false otherwise.
       */
-    public boolean hasAddress() {
-      return fieldSetFlags()[1];
+    public boolean hasAddresses() {
+      return fieldSetFlags()[2];
     }
 
-    /**
-     * Gets the Builder instance for the 'address' field and creates one if it doesn't exist yet.
-     * @return This builder.
-     */
-    public com.jana.karim.avro.model.destination.MailAddress.Builder getAddressBuilder() {
-      if (addressBuilder == null) {
-        if (hasAddress()) {
-          setAddressBuilder(com.jana.karim.avro.model.destination.MailAddress.newBuilder(address));
-        } else {
-          setAddressBuilder(com.jana.karim.avro.model.destination.MailAddress.newBuilder());
-        }
-      }
-      return addressBuilder;
-    }
 
     /**
-     * Sets the Builder instance for the 'address' field
-     * @return This builder.
-     */
-    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setAddressBuilder(com.jana.karim.avro.model.destination.MailAddress.Builder value) {
-      clearAddress();
-      addressBuilder = value;
-      return this;
-    }
-
-    /**
-     * Checks whether the 'address' field has an active Builder instance
-     * @return True if the 'address' field has an active Builder instance
-     */
-    public boolean hasAddressBuilder() {
-      return addressBuilder != null;
-    }
-
-    /**
-      * Clears the value of the 'address' field.
+      * Clears the value of the 'addresses' field.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearAddress() {
-      address = null;
-      addressBuilder = null;
-      fieldSetFlags()[1] = false;
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearAddresses() {
+      addresses = null;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -309,16 +337,13 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
     public CustomerInfo build() {
       try {
         CustomerInfo record = new CustomerInfo();
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
         if (nameBuilder != null) {
           record.name = this.nameBuilder.build();
         } else {
-          record.name = fieldSetFlags()[0] ? this.name : (com.jana.karim.avro.model.destination.Name) defaultValue(fields()[0]);
+          record.name = fieldSetFlags()[1] ? this.name : (com.jana.karim.avro.model.destination.Name) defaultValue(fields()[1]);
         }
-        if (addressBuilder != null) {
-          record.address = this.addressBuilder.build();
-        } else {
-          record.address = fieldSetFlags()[1] ? this.address : (com.jana.karim.avro.model.destination.MailAddress) defaultValue(fields()[1]);
-        }
+        record.addresses = fieldSetFlags()[2] ? this.addresses : (java.util.List<com.jana.karim.avro.model.destination.MailAddress>) defaultValue(fields()[2]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

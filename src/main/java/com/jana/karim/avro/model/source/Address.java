@@ -7,10 +7,10 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Address extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7699069621263477648L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"name_id\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 8022606908450674295L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"address_id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"name_id\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  @Deprecated public java.lang.CharSequence id;
+  @Deprecated public java.lang.CharSequence address_id;
   @Deprecated public java.lang.CharSequence city;
   @Deprecated public java.lang.CharSequence name_id;
 
@@ -24,8 +24,8 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   /**
    * All-args constructor.
    */
-  public Address(java.lang.CharSequence id, java.lang.CharSequence city, java.lang.CharSequence name_id) {
-    this.id = id;
+  public Address(java.lang.CharSequence address_id, java.lang.CharSequence city, java.lang.CharSequence name_id) {
+    this.address_id = address_id;
     this.city = city;
     this.name_id = name_id;
   }
@@ -34,7 +34,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   // Used by DatumWriter.  Applications should not call. 
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return id;
+    case 0: return address_id;
     case 1: return city;
     case 2: return name_id;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -44,7 +44,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
+    case 0: address_id = (java.lang.CharSequence)value$; break;
     case 1: city = (java.lang.CharSequence)value$; break;
     case 2: name_id = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -52,18 +52,18 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
   /**
-   * Gets the value of the 'id' field.
+   * Gets the value of the 'address_id' field.
    */
-  public java.lang.CharSequence getId() {
-    return id;
+  public java.lang.CharSequence getAddressId() {
+    return address_id;
   }
 
   /**
-   * Sets the value of the 'id' field.
+   * Sets the value of the 'address_id' field.
    * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
-    this.id = value;
+  public void setAddressId(java.lang.CharSequence value) {
+    this.address_id = value;
   }
 
   /**
@@ -128,7 +128,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Address>
     implements org.apache.avro.data.RecordBuilder<Address> {
 
-    private java.lang.CharSequence id;
+    private java.lang.CharSequence address_id;
     private java.lang.CharSequence city;
     private java.lang.CharSequence name_id;
 
@@ -143,8 +143,8 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
      */
     private Builder(com.jana.karim.avro.model.source.Address.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.address_id)) {
+        this.address_id = data().deepCopy(fields()[0].schema(), other.address_id);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.city)) {
@@ -163,8 +163,8 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
      */
     private Builder(com.jana.karim.avro.model.source.Address other) {
             super(com.jana.karim.avro.model.source.Address.SCHEMA$);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.address_id)) {
+        this.address_id = data().deepCopy(fields()[0].schema(), other.address_id);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.city)) {
@@ -178,40 +178,40 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /**
-      * Gets the value of the 'id' field.
+      * Gets the value of the 'address_id' field.
       * @return The value.
       */
-    public java.lang.CharSequence getId() {
-      return id;
+    public java.lang.CharSequence getAddressId() {
+      return address_id;
     }
 
     /**
-      * Sets the value of the 'id' field.
-      * @param value The value of 'id'.
+      * Sets the value of the 'address_id' field.
+      * @param value The value of 'address_id'.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.source.Address.Builder setId(java.lang.CharSequence value) {
+    public com.jana.karim.avro.model.source.Address.Builder setAddressId(java.lang.CharSequence value) {
       validate(fields()[0], value);
-      this.id = value;
+      this.address_id = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
 
     /**
-      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+      * Checks whether the 'address_id' field has been set.
+      * @return True if the 'address_id' field has been set, false otherwise.
       */
-    public boolean hasId() {
+    public boolean hasAddressId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'id' field.
+      * Clears the value of the 'address_id' field.
       * @return This builder.
       */
-    public com.jana.karim.avro.model.source.Address.Builder clearId() {
-      id = null;
+    public com.jana.karim.avro.model.source.Address.Builder clearAddressId() {
+      address_id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -298,7 +298,7 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     public Address build() {
       try {
         Address record = new Address();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.address_id = fieldSetFlags()[0] ? this.address_id : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.city = fieldSetFlags()[1] ? this.city : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.name_id = fieldSetFlags()[2] ? this.name_id : (java.lang.CharSequence) defaultValue(fields()[2]);
         return record;
