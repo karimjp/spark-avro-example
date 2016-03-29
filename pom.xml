@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <maven.compiler.version>3.5.1</maven.compiler.version>
-        <avro.version>1.7.4</avro.version>
+        <avro.version>1.8.0</avro.version>
         <spark.version>1.6.1</spark.version>
         <databricks.spark.avro.version>2.0.1</databricks.spark.avro.version>
         <twitter.chill.version>0.2.3</twitter.chill.version>
@@ -77,6 +77,13 @@
             <groupId>org.apache.avro</groupId>
             <artifactId>avro-ipc</artifactId>
             <version>${avro.version}</version>
+            <exclusions>
+                <!-- Conflicts with spark context initialization -->
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -93,16 +100,17 @@
             <artifactId>spark-avro_2.10</artifactId>
             <version>${databricks.spark.avro.version}</version>
         </dependency>
-        <dependency>
+
+        <!--dependency>
             <groupId>com.twitter</groupId>
             <artifactId>chill_2.9.2</artifactId>
             <version>${twitter.chill.version}</version>
-        </dependency>
-        <dependency>
+        </dependency-->
+        <!--dependency>
             <groupId>com.twitter</groupId>
             <artifactId>chill-avro</artifactId>
             <version>${twitter.chill.avro.version}</version>
-        </dependency>
+        </dependency-->
 
     </dependencies>
 </project>

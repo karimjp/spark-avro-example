@@ -7,6 +7,7 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class User extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 7562919378048594253L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence id;
@@ -14,7 +15,9 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   @Deprecated public java.lang.CharSequence nickname;
 
   /**
-   * Default constructor.
+   * Default constructor.  Note that this does not initialize fields
+   * to their default values from the schema.  If that is desired then
+   * one should use <code>newBuilder()</code>. 
    */
   public User() {}
 
@@ -93,17 +96,28 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     this.nickname = value;
   }
 
-  /** Creates a new User RecordBuilder */
+  /**
+   * Creates a new User RecordBuilder.
+   * @return A new User RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.User.Builder newBuilder() {
     return new com.jana.karim.avro.model.source.User.Builder();
   }
   
-  /** Creates a new User RecordBuilder by copying an existing Builder */
+  /**
+   * Creates a new User RecordBuilder by copying an existing Builder.
+   * @param other The existing builder to copy.
+   * @return A new User RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.User.Builder newBuilder(com.jana.karim.avro.model.source.User.Builder other) {
     return new com.jana.karim.avro.model.source.User.Builder(other);
   }
   
-  /** Creates a new User RecordBuilder by copying an existing User instance */
+  /**
+   * Creates a new User RecordBuilder by copying an existing User instance.
+   * @param other The existing instance to copy.
+   * @return A new User RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.User.Builder newBuilder(com.jana.karim.avro.model.source.User other) {
     return new com.jana.karim.avro.model.source.User.Builder(other);
   }
@@ -123,12 +137,30 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       super(com.jana.karim.avro.model.source.User.SCHEMA$);
     }
     
-    /** Creates a Builder by copying an existing Builder */
+    /**
+     * Creates a Builder by copying an existing Builder.
+     * @param other The existing Builder to copy.
+     */
     private Builder(com.jana.karim.avro.model.source.User.Builder other) {
       super(other);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
+        fieldSetFlags()[0] = true;
+      }
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
+        fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.nickname)) {
+        this.nickname = data().deepCopy(fields()[2].schema(), other.nickname);
+        fieldSetFlags()[2] = true;
+      }
     }
     
-    /** Creates a Builder by copying an existing User instance */
+    /**
+     * Creates a Builder by copying an existing User instance
+     * @param other The existing instance to copy.
+     */
     private Builder(com.jana.karim.avro.model.source.User other) {
             super(com.jana.karim.avro.model.source.User.SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
@@ -145,75 +177,117 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       }
     }
 
-    /** Gets the value of the 'id' field */
+    /**
+      * Gets the value of the 'id' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getId() {
       return id;
     }
-    
-    /** Sets the value of the 'id' field */
+
+    /**
+      * Sets the value of the 'id' field.
+      * @param value The value of 'id'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
-    
-    /** Checks whether the 'id' field has been set */
+
+    /**
+      * Checks whether the 'id' field has been set.
+      * @return True if the 'id' field has been set, false otherwise.
+      */
     public boolean hasId() {
       return fieldSetFlags()[0];
     }
-    
-    /** Clears the value of the 'id' field */
+
+
+    /**
+      * Clears the value of the 'id' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
-    /** Gets the value of the 'name' field */
+    /**
+      * Gets the value of the 'name' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getName() {
       return name;
     }
-    
-    /** Sets the value of the 'name' field */
+
+    /**
+      * Sets the value of the 'name' field.
+      * @param value The value of 'name'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder setName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.name = value;
       fieldSetFlags()[1] = true;
       return this; 
     }
-    
-    /** Checks whether the 'name' field has been set */
+
+    /**
+      * Checks whether the 'name' field has been set.
+      * @return True if the 'name' field has been set, false otherwise.
+      */
     public boolean hasName() {
       return fieldSetFlags()[1];
     }
-    
-    /** Clears the value of the 'name' field */
+
+
+    /**
+      * Clears the value of the 'name' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder clearName() {
       name = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
-    /** Gets the value of the 'nickname' field */
+    /**
+      * Gets the value of the 'nickname' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getNickname() {
       return nickname;
     }
-    
-    /** Sets the value of the 'nickname' field */
+
+    /**
+      * Sets the value of the 'nickname' field.
+      * @param value The value of 'nickname'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder setNickname(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.nickname = value;
       fieldSetFlags()[2] = true;
       return this; 
     }
-    
-    /** Checks whether the 'nickname' field has been set */
+
+    /**
+      * Checks whether the 'nickname' field has been set.
+      * @return True if the 'nickname' field has been set, false otherwise.
+      */
     public boolean hasNickname() {
       return fieldSetFlags()[2];
     }
-    
-    /** Clears the value of the 'nickname' field */
+
+
+    /**
+      * Clears the value of the 'nickname' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.User.Builder clearNickname() {
       nickname = null;
       fieldSetFlags()[2] = false;
@@ -233,4 +307,21 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       }
     }
   }
+
+  private static final org.apache.avro.io.DatumWriter
+    WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);  
+
+  @Override public void writeExternal(java.io.ObjectOutput out)
+    throws java.io.IOException {
+    WRITER$.write(this, org.apache.avro.specific.SpecificData.getEncoder(out));
+  }
+
+  private static final org.apache.avro.io.DatumReader
+    READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);  
+
+  @Override public void readExternal(java.io.ObjectInput in)
+    throws java.io.IOException {
+    READER$.read(this, org.apache.avro.specific.SpecificData.getDecoder(in));
+  }
+
 }

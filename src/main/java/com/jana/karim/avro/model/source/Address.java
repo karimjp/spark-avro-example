@@ -7,6 +7,7 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Address extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -7699069621263477648L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"name_id\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence id;
@@ -14,7 +15,9 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
   @Deprecated public java.lang.CharSequence name_id;
 
   /**
-   * Default constructor.
+   * Default constructor.  Note that this does not initialize fields
+   * to their default values from the schema.  If that is desired then
+   * one should use <code>newBuilder()</code>. 
    */
   public Address() {}
 
@@ -93,17 +96,28 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
     this.name_id = value;
   }
 
-  /** Creates a new Address RecordBuilder */
+  /**
+   * Creates a new Address RecordBuilder.
+   * @return A new Address RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.Address.Builder newBuilder() {
     return new com.jana.karim.avro.model.source.Address.Builder();
   }
   
-  /** Creates a new Address RecordBuilder by copying an existing Builder */
+  /**
+   * Creates a new Address RecordBuilder by copying an existing Builder.
+   * @param other The existing builder to copy.
+   * @return A new Address RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.Address.Builder newBuilder(com.jana.karim.avro.model.source.Address.Builder other) {
     return new com.jana.karim.avro.model.source.Address.Builder(other);
   }
   
-  /** Creates a new Address RecordBuilder by copying an existing Address instance */
+  /**
+   * Creates a new Address RecordBuilder by copying an existing Address instance.
+   * @param other The existing instance to copy.
+   * @return A new Address RecordBuilder
+   */
   public static com.jana.karim.avro.model.source.Address.Builder newBuilder(com.jana.karim.avro.model.source.Address other) {
     return new com.jana.karim.avro.model.source.Address.Builder(other);
   }
@@ -123,12 +137,30 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
       super(com.jana.karim.avro.model.source.Address.SCHEMA$);
     }
     
-    /** Creates a Builder by copying an existing Builder */
+    /**
+     * Creates a Builder by copying an existing Builder.
+     * @param other The existing Builder to copy.
+     */
     private Builder(com.jana.karim.avro.model.source.Address.Builder other) {
       super(other);
+      if (isValidValue(fields()[0], other.id)) {
+        this.id = data().deepCopy(fields()[0].schema(), other.id);
+        fieldSetFlags()[0] = true;
+      }
+      if (isValidValue(fields()[1], other.city)) {
+        this.city = data().deepCopy(fields()[1].schema(), other.city);
+        fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.name_id)) {
+        this.name_id = data().deepCopy(fields()[2].schema(), other.name_id);
+        fieldSetFlags()[2] = true;
+      }
     }
     
-    /** Creates a Builder by copying an existing Address instance */
+    /**
+     * Creates a Builder by copying an existing Address instance
+     * @param other The existing instance to copy.
+     */
     private Builder(com.jana.karim.avro.model.source.Address other) {
             super(com.jana.karim.avro.model.source.Address.SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
@@ -145,75 +177,117 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
       }
     }
 
-    /** Gets the value of the 'id' field */
+    /**
+      * Gets the value of the 'id' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getId() {
       return id;
     }
-    
-    /** Sets the value of the 'id' field */
+
+    /**
+      * Sets the value of the 'id' field.
+      * @param value The value of 'id'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
-    
-    /** Checks whether the 'id' field has been set */
+
+    /**
+      * Checks whether the 'id' field has been set.
+      * @return True if the 'id' field has been set, false otherwise.
+      */
     public boolean hasId() {
       return fieldSetFlags()[0];
     }
-    
-    /** Clears the value of the 'id' field */
+
+
+    /**
+      * Clears the value of the 'id' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
-    /** Gets the value of the 'city' field */
+    /**
+      * Gets the value of the 'city' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getCity() {
       return city;
     }
-    
-    /** Sets the value of the 'city' field */
+
+    /**
+      * Sets the value of the 'city' field.
+      * @param value The value of 'city'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder setCity(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.city = value;
       fieldSetFlags()[1] = true;
       return this; 
     }
-    
-    /** Checks whether the 'city' field has been set */
+
+    /**
+      * Checks whether the 'city' field has been set.
+      * @return True if the 'city' field has been set, false otherwise.
+      */
     public boolean hasCity() {
       return fieldSetFlags()[1];
     }
-    
-    /** Clears the value of the 'city' field */
+
+
+    /**
+      * Clears the value of the 'city' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder clearCity() {
       city = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
-    /** Gets the value of the 'name_id' field */
+    /**
+      * Gets the value of the 'name_id' field.
+      * @return The value.
+      */
     public java.lang.CharSequence getNameId() {
       return name_id;
     }
-    
-    /** Sets the value of the 'name_id' field */
+
+    /**
+      * Sets the value of the 'name_id' field.
+      * @param value The value of 'name_id'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder setNameId(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.name_id = value;
       fieldSetFlags()[2] = true;
       return this; 
     }
-    
-    /** Checks whether the 'name_id' field has been set */
+
+    /**
+      * Checks whether the 'name_id' field has been set.
+      * @return True if the 'name_id' field has been set, false otherwise.
+      */
     public boolean hasNameId() {
       return fieldSetFlags()[2];
     }
-    
-    /** Clears the value of the 'name_id' field */
+
+
+    /**
+      * Clears the value of the 'name_id' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.source.Address.Builder clearNameId() {
       name_id = null;
       fieldSetFlags()[2] = false;
@@ -233,4 +307,21 @@ public class Address extends org.apache.avro.specific.SpecificRecordBase impleme
       }
     }
   }
+
+  private static final org.apache.avro.io.DatumWriter
+    WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);  
+
+  @Override public void writeExternal(java.io.ObjectOutput out)
+    throws java.io.IOException {
+    WRITER$.write(this, org.apache.avro.specific.SpecificData.getEncoder(out));
+  }
+
+  private static final org.apache.avro.io.DatumReader
+    READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);  
+
+  @Override public void readExternal(java.io.ObjectInput in)
+    throws java.io.IOException {
+    READER$.read(this, org.apache.avro.specific.SpecificData.getDecoder(in));
+  }
+
 }

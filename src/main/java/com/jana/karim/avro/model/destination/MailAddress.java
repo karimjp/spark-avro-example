@@ -7,12 +7,15 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class MailAddress extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -3834694776629675000L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MailAddress\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"city\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.util.List<java.lang.CharSequence> city;
 
   /**
-   * Default constructor.
+   * Default constructor.  Note that this does not initialize fields
+   * to their default values from the schema.  If that is desired then
+   * one should use <code>newBuilder()</code>. 
    */
   public MailAddress() {}
 
@@ -55,17 +58,28 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
     this.city = value;
   }
 
-  /** Creates a new MailAddress RecordBuilder */
+  /**
+   * Creates a new MailAddress RecordBuilder.
+   * @return A new MailAddress RecordBuilder
+   */
   public static com.jana.karim.avro.model.destination.MailAddress.Builder newBuilder() {
     return new com.jana.karim.avro.model.destination.MailAddress.Builder();
   }
   
-  /** Creates a new MailAddress RecordBuilder by copying an existing Builder */
+  /**
+   * Creates a new MailAddress RecordBuilder by copying an existing Builder.
+   * @param other The existing builder to copy.
+   * @return A new MailAddress RecordBuilder
+   */
   public static com.jana.karim.avro.model.destination.MailAddress.Builder newBuilder(com.jana.karim.avro.model.destination.MailAddress.Builder other) {
     return new com.jana.karim.avro.model.destination.MailAddress.Builder(other);
   }
   
-  /** Creates a new MailAddress RecordBuilder by copying an existing MailAddress instance */
+  /**
+   * Creates a new MailAddress RecordBuilder by copying an existing MailAddress instance.
+   * @param other The existing instance to copy.
+   * @return A new MailAddress RecordBuilder
+   */
   public static com.jana.karim.avro.model.destination.MailAddress.Builder newBuilder(com.jana.karim.avro.model.destination.MailAddress other) {
     return new com.jana.karim.avro.model.destination.MailAddress.Builder(other);
   }
@@ -83,12 +97,22 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
       super(com.jana.karim.avro.model.destination.MailAddress.SCHEMA$);
     }
     
-    /** Creates a Builder by copying an existing Builder */
+    /**
+     * Creates a Builder by copying an existing Builder.
+     * @param other The existing Builder to copy.
+     */
     private Builder(com.jana.karim.avro.model.destination.MailAddress.Builder other) {
       super(other);
+      if (isValidValue(fields()[0], other.city)) {
+        this.city = data().deepCopy(fields()[0].schema(), other.city);
+        fieldSetFlags()[0] = true;
+      }
     }
     
-    /** Creates a Builder by copying an existing MailAddress instance */
+    /**
+     * Creates a Builder by copying an existing MailAddress instance
+     * @param other The existing instance to copy.
+     */
     private Builder(com.jana.karim.avro.model.destination.MailAddress other) {
             super(com.jana.karim.avro.model.destination.MailAddress.SCHEMA$);
       if (isValidValue(fields()[0], other.city)) {
@@ -97,25 +121,39 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
       }
     }
 
-    /** Gets the value of the 'city' field */
+    /**
+      * Gets the value of the 'city' field.
+      * @return The value.
+      */
     public java.util.List<java.lang.CharSequence> getCity() {
       return city;
     }
-    
-    /** Sets the value of the 'city' field */
+
+    /**
+      * Sets the value of the 'city' field.
+      * @param value The value of 'city'.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.destination.MailAddress.Builder setCity(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[0], value);
       this.city = value;
       fieldSetFlags()[0] = true;
       return this; 
     }
-    
-    /** Checks whether the 'city' field has been set */
+
+    /**
+      * Checks whether the 'city' field has been set.
+      * @return True if the 'city' field has been set, false otherwise.
+      */
     public boolean hasCity() {
       return fieldSetFlags()[0];
     }
-    
-    /** Clears the value of the 'city' field */
+
+
+    /**
+      * Clears the value of the 'city' field.
+      * @return This builder.
+      */
     public com.jana.karim.avro.model.destination.MailAddress.Builder clearCity() {
       city = null;
       fieldSetFlags()[0] = false;
@@ -133,4 +171,21 @@ public class MailAddress extends org.apache.avro.specific.SpecificRecordBase imp
       }
     }
   }
+
+  private static final org.apache.avro.io.DatumWriter
+    WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);  
+
+  @Override public void writeExternal(java.io.ObjectOutput out)
+    throws java.io.IOException {
+    WRITER$.write(this, org.apache.avro.specific.SpecificData.getEncoder(out));
+  }
+
+  private static final org.apache.avro.io.DatumReader
+    READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);  
+
+  @Override public void readExternal(java.io.ObjectInput in)
+    throws java.io.IOException {
+    READER$.read(this, org.apache.avro.specific.SpecificData.getDecoder(in));
+  }
+
 }

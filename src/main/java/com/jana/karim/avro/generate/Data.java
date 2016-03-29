@@ -4,16 +4,14 @@ package com.jana.karim.avro.generate;
  * Created by karim on 3/27/16.
  */
 
-import com.jana.karim.avro.model.source.User;
 import com.jana.karim.avro.model.source.Address;
+import com.jana.karim.avro.model.source.User;
 import org.apache.avro.file.DataFileWriter;
 import org.apache.avro.io.DatumWriter;
 import org.apache.avro.specific.SpecificDatumWriter;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Data {
     public static void avroGenerate() throws IOException {
@@ -58,12 +56,13 @@ public class Data {
         userDataFileWriter.append(user3);
         userDataFileWriter.close();
 
-        DatumWriter<User> addressDatumWriter = new SpecificDatumWriter<User>(User.class);
-        DataFileWriter<User> addressDataFileWriter = new DataFileWriter<User>(addressDatumWriter);
-        addressDataFileWriter.create(user1.getSchema(), new File(dataPath + "addresses.avro"));
-        addressDataFileWriter.append(user1);
-        addressDataFileWriter.append(user2);
-        addressDataFileWriter.append(user3);
+        DatumWriter<Address> addressDatumWriter = new SpecificDatumWriter<Address>(Address.class);
+        DataFileWriter<Address> addressDataFileWriter = new DataFileWriter<Address>(addressDatumWriter);
+        addressDataFileWriter.create(address1.getSchema(), new File(dataPath + "addresses.avro"));
+        addressDataFileWriter.append(address1);
+        addressDataFileWriter.append(address2);
+        addressDataFileWriter.append(address3);
+        addressDataFileWriter.append(address4);
         addressDataFileWriter.close();
     }
 }

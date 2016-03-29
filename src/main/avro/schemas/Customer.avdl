@@ -1,5 +1,7 @@
 @namespace("com.jana.karim.avro.model.destination")
 protocol Customer {
+
+
     record Name {
       string id;
       string name;
@@ -8,4 +10,9 @@ protocol Customer {
     record MailAddress {
       array<string> city;
     }
+
+    record CustomerInfo {
+        Name name;
+        MailAddress address;
+        }
 }
