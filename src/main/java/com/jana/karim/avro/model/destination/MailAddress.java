@@ -7,8 +7,8 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class MailAddress extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1199541131448944841L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MailAddress\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"city\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 7915712343971887668L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MailAddress\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"city\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence city;
 

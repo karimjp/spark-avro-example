@@ -8,7 +8,7 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public interface Customer {
-  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"Customer\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"types\":[{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickname\",\"type\":\"string\"}]},{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":\"string\"}]},{\"type\":\"record\",\"name\":\"CustomerInfo\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"Name\"},{\"name\":\"addresses\",\"type\":{\"type\":\"array\",\"items\":\"MailAddress\"}}]}],\"messages\":{}}");
+  public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse("{\"protocol\":\"Customer\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"types\":[{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"nickname\",\"type\":[\"null\",\"string\"],\"default\":null}]},{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":[\"null\",\"string\"],\"default\":null}]},{\"type\":\"record\",\"name\":\"CustomerInfo\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":[\"null\",\"Name\"],\"default\":null},{\"name\":\"addresses\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"MailAddress\"}],\"default\":null}]}],\"messages\":{}}");
 
   @SuppressWarnings("all")
   public interface Callback extends Customer {

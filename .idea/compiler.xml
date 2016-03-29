@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="spark-avro-example" />
+        <module name="spark-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spark-avro-example" target="1.8" />
+      <module name="spark-test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

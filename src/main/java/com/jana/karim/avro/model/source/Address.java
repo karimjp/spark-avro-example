@@ -7,8 +7,8 @@ package com.jana.karim.avro.model.source;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Address extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 8022606908450674295L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"address_id\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"name_id\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -1139687393875306913L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Address\",\"namespace\":\"com.jana.karim.avro.model.source\",\"fields\":[{\"name\":\"address_id\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"name_id\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence address_id;
   @Deprecated public java.lang.CharSequence city;

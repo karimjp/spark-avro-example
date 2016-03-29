@@ -3,16 +3,16 @@ protocol Customer {
 
 
     record Name {
-      string name;
-      string nickname;
+      union {null, string} name = null;
+      union {null, string} nickname = null;
     }
     record MailAddress {
-      string city;
+      union {null, string} city = null;
     }
 
     record CustomerInfo {
         string id;
-        Name name;
-        array<MailAddress> addresses;
+        union {null, Name} name = null;
+        union {null, array<MailAddress>} addresses = null;
         }
 }
