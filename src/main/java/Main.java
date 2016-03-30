@@ -8,7 +8,11 @@ import com.jana.karim.avro.model.destination.Name;
 import com.jana.karim.avro.model.destination.MailAddress;
 
 
-
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
+import org.apache.parquet.hadoop.ParquetOutputFormat;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -20,6 +24,10 @@ import org.apache.spark.api.java.function.VoidFunction;
 import org.apache.spark.sql.DataFrame;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
+import parquet.avro.AvroParquetOutputFormat;
+import parquet.avro.AvroParquetWriter;
+import parquet.avro.AvroWriteSupport;
+
 import scala.Tuple2;
 
 
@@ -81,14 +89,47 @@ public class Main {
         JavaRDD<CustomerInfo> partialRddCustomerInfo = partialRddCustomerInfoUser
                                                             .union(partialRddCustomerInfoAddress);
 
-        JavaPairRDD<String, CustomerInfo> keyedPartialRddCustomerInfo = partialRddCustomerInfo
+        JavaPairRDD<Text, CustomerInfo> keyedPartialRddCustomerInfo = partialRddCustomerInfo
                                                                             .mapToPair(new ConvertToKeyValue());
 
-        JavaPairRDD<String, CustomerInfo> combinedPairRddCustomerInfo = keyedPartialRddCustomerInfo
+        JavaPairRDD<Text, CustomerInfo> combinedPairRddCustomerInfo = keyedPartialRddCustomerInfo
                                                                         .combineByKey(new createCombiner(),
                                                                                         new mergeValue(),
                                                                                         new mergeCombiners());
-        combinedPairRddCustomerInfo.foreach(new PrintJavaPairRdd());
+        combinedPairRddCustomerInfo.foreach(new PrintJavaPairRddText());
+
+        String textOutputDir = "src/main/resources/textFile";
+        String hadoopFileOutputDir = "src/main/resources/hadoopFile";
+        String parquetStore = "src/main/resources/parquet";
+
+        combinedPairRddCustomerInfo.saveAsTextFile(textOutputDir);
+
+        combinedPairRddCustomerInfo.saveAsNewAPIHadoopFile(hadoopFileOutputDir,
+                                                            Text.class,
+                                                            CustomerInfo.class,
+                                                            SequenceFileOutputFormat.class);
+
+
+        JavaPairRDD<NullWritable, CustomerInfo> combinedFormattedNullAvroClass = combinedPairRddCustomerInfo.
+                                                                            mapToPair(new ConvertToNullKeyValue());
+
+        Job job = new Job();
+
+        ParquetOutputFormat.setWriteSupportClass(job, AvroWriteSupport.class);
+
+        AvroParquetOutputFormat.setSchema(job, CustomerInfo.SCHEMA$);
+        ParquetOutputFormat<CustomerInfo> pOutput = new ParquetOutputFormat<CustomerInfo>();
+        combinedFormattedNullAvroClass.saveAsNewAPIHadoopFile(parquetStore,
+                                                            NullWritable.class,
+                                                            CustomerInfo.class,
+                                                            pOutput.getClass(),
+                                                            job.getConfiguration());
+
+
+       /* combinedFormattedNullAvroClass.saveAsNewAPIHadoopFile(parquetStore,
+                                                                NullWritable.class,
+                                                                CustomerInfo.class,
+                                                                c.getClass());*/
 
     }
     static class createCombiner implements Function<CustomerInfo, CustomerInfo> {
@@ -169,12 +210,20 @@ public class Main {
             return customerInfo;
         }
     }
-    static class ConvertToKeyValue implements  PairFunction<CustomerInfo, String, CustomerInfo>{
+    static class ConvertToKeyValue implements  PairFunction<CustomerInfo, Text, CustomerInfo>{
 
-        public Tuple2<String, CustomerInfo> call(CustomerInfo customerInfo) throws Exception {
-            return new Tuple2<String,CustomerInfo>(customerInfo.getId().toString(), customerInfo);
+        public Tuple2<Text, CustomerInfo> call(CustomerInfo customerInfo) throws Exception {
+            return new Tuple2<Text,CustomerInfo>(new Text(customerInfo.getId().toString()), customerInfo);
         }
     }
+
+    static class ConvertToNullKeyValue implements  PairFunction<Tuple2<Text,CustomerInfo>,NullWritable, CustomerInfo>{
+
+        public Tuple2<NullWritable, CustomerInfo> call(Tuple2<Text, CustomerInfo> stringCustomerInfoTuple2) throws Exception {
+            return new Tuple2<NullWritable, CustomerInfo>(NullWritable.get(), stringCustomerInfoTuple2._2());
+        }
+    }
+
     static class UserPartialMapping implements Function<Row, CustomerInfo>{
 
         public CustomerInfo call(Row row) throws Exception {
@@ -207,6 +256,7 @@ public class Main {
             System.out.println("CustomerInfo: " + customerInfo.toString());
         }
     }
+
     static class PrintJavaPairRdd implements VoidFunction<Tuple2<String, CustomerInfo>>{
 
         public void call(Tuple2<String, CustomerInfo> tuple2) throws Exception {
@@ -215,6 +265,13 @@ public class Main {
         }
     }
 
+    static class PrintJavaPairRddText implements VoidFunction<Tuple2<Text, CustomerInfo>>{
+
+        public void call(Tuple2<Text, CustomerInfo> tuple2) throws Exception {
+            System.out.println("key: "   + tuple2._1().toString());
+            System.out.println("value: " + tuple2._2().toString());
+        }
+    }
 
 
 
