@@ -7,12 +7,15 @@ package com.jana.karim.avro.model.destination;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4805032091410070536L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerInfo\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"nickname\",\"type\":[\"null\",\"string\"],\"default\":null}]}],\"default\":null},{\"name\":\"addresses\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":[\"null\",\"string\"],\"default\":null}]}}],\"default\":null}]}");
+  private static final long serialVersionUID = 5025295813733539880L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerInfo\",\"namespace\":\"com.jana.karim.avro.model.destination\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Name\",\"fields\":[{\"name\":\"name\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"nickname\",\"type\":[\"null\",\"string\"],\"default\":null}]}],\"default\":null},{\"name\":\"addresses\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"MailAddress\",\"fields\":[{\"name\":\"city\",\"type\":[\"null\",\"string\"],\"default\":null}]}}],\"default\":null},{\"name\":\"product_description\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"price\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"products\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Product\",\"fields\":[{\"name\":\"product_description\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"price\",\"type\":[\"null\",\"string\"],\"default\":null}]}}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence id;
   @Deprecated public com.jana.karim.avro.model.destination.Name name;
   @Deprecated public java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses;
+  @Deprecated public java.lang.CharSequence product_description;
+  @Deprecated public java.lang.CharSequence price;
+  @Deprecated public java.util.List<com.jana.karim.avro.model.destination.Product> products;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -24,10 +27,13 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   /**
    * All-args constructor.
    */
-  public CustomerInfo(java.lang.CharSequence id, com.jana.karim.avro.model.destination.Name name, java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses) {
+  public CustomerInfo(java.lang.CharSequence id, com.jana.karim.avro.model.destination.Name name, java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses, java.lang.CharSequence product_description, java.lang.CharSequence price, java.util.List<com.jana.karim.avro.model.destination.Product> products) {
     this.id = id;
     this.name = name;
     this.addresses = addresses;
+    this.product_description = product_description;
+    this.price = price;
+    this.products = products;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -37,6 +43,9 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
     case 0: return id;
     case 1: return name;
     case 2: return addresses;
+    case 3: return product_description;
+    case 4: return price;
+    case 5: return products;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -47,6 +56,9 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
     case 0: id = (java.lang.CharSequence)value$; break;
     case 1: name = (com.jana.karim.avro.model.destination.Name)value$; break;
     case 2: addresses = (java.util.List<com.jana.karim.avro.model.destination.MailAddress>)value$; break;
+    case 3: product_description = (java.lang.CharSequence)value$; break;
+    case 4: price = (java.lang.CharSequence)value$; break;
+    case 5: products = (java.util.List<com.jana.karim.avro.model.destination.Product>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -97,6 +109,51 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
   }
 
   /**
+   * Gets the value of the 'product_description' field.
+   */
+  public java.lang.CharSequence getProductDescription() {
+    return product_description;
+  }
+
+  /**
+   * Sets the value of the 'product_description' field.
+   * @param value the value to set.
+   */
+  public void setProductDescription(java.lang.CharSequence value) {
+    this.product_description = value;
+  }
+
+  /**
+   * Gets the value of the 'price' field.
+   */
+  public java.lang.CharSequence getPrice() {
+    return price;
+  }
+
+  /**
+   * Sets the value of the 'price' field.
+   * @param value the value to set.
+   */
+  public void setPrice(java.lang.CharSequence value) {
+    this.price = value;
+  }
+
+  /**
+   * Gets the value of the 'products' field.
+   */
+  public java.util.List<com.jana.karim.avro.model.destination.Product> getProducts() {
+    return products;
+  }
+
+  /**
+   * Sets the value of the 'products' field.
+   * @param value the value to set.
+   */
+  public void setProducts(java.util.List<com.jana.karim.avro.model.destination.Product> value) {
+    this.products = value;
+  }
+
+  /**
    * Creates a new CustomerInfo RecordBuilder.
    * @return A new CustomerInfo RecordBuilder
    */
@@ -132,6 +189,9 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
     private com.jana.karim.avro.model.destination.Name name;
     private com.jana.karim.avro.model.destination.Name.Builder nameBuilder;
     private java.util.List<com.jana.karim.avro.model.destination.MailAddress> addresses;
+    private java.lang.CharSequence product_description;
+    private java.lang.CharSequence price;
+    private java.util.List<com.jana.karim.avro.model.destination.Product> products;
 
     /** Creates a new Builder */
     private Builder() {
@@ -159,6 +219,18 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
         this.addresses = data().deepCopy(fields()[2].schema(), other.addresses);
         fieldSetFlags()[2] = true;
       }
+      if (isValidValue(fields()[3], other.product_description)) {
+        this.product_description = data().deepCopy(fields()[3].schema(), other.product_description);
+        fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.price)) {
+        this.price = data().deepCopy(fields()[4].schema(), other.price);
+        fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.products)) {
+        this.products = data().deepCopy(fields()[5].schema(), other.products);
+        fieldSetFlags()[5] = true;
+      }
     }
     
     /**
@@ -179,6 +251,18 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
       if (isValidValue(fields()[2], other.addresses)) {
         this.addresses = data().deepCopy(fields()[2].schema(), other.addresses);
         fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.product_description)) {
+        this.product_description = data().deepCopy(fields()[3].schema(), other.product_description);
+        fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.price)) {
+        this.price = data().deepCopy(fields()[4].schema(), other.price);
+        fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.products)) {
+        this.products = data().deepCopy(fields()[5].schema(), other.products);
+        fieldSetFlags()[5] = true;
       }
     }
 
@@ -333,6 +417,123 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
       return this;
     }
 
+    /**
+      * Gets the value of the 'product_description' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getProductDescription() {
+      return product_description;
+    }
+
+    /**
+      * Sets the value of the 'product_description' field.
+      * @param value The value of 'product_description'.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setProductDescription(java.lang.CharSequence value) {
+      validate(fields()[3], value);
+      this.product_description = value;
+      fieldSetFlags()[3] = true;
+      return this; 
+    }
+
+    /**
+      * Checks whether the 'product_description' field has been set.
+      * @return True if the 'product_description' field has been set, false otherwise.
+      */
+    public boolean hasProductDescription() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'product_description' field.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearProductDescription() {
+      product_description = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'price' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getPrice() {
+      return price;
+    }
+
+    /**
+      * Sets the value of the 'price' field.
+      * @param value The value of 'price'.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setPrice(java.lang.CharSequence value) {
+      validate(fields()[4], value);
+      this.price = value;
+      fieldSetFlags()[4] = true;
+      return this; 
+    }
+
+    /**
+      * Checks whether the 'price' field has been set.
+      * @return True if the 'price' field has been set, false otherwise.
+      */
+    public boolean hasPrice() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'price' field.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearPrice() {
+      price = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'products' field.
+      * @return The value.
+      */
+    public java.util.List<com.jana.karim.avro.model.destination.Product> getProducts() {
+      return products;
+    }
+
+    /**
+      * Sets the value of the 'products' field.
+      * @param value The value of 'products'.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder setProducts(java.util.List<com.jana.karim.avro.model.destination.Product> value) {
+      validate(fields()[5], value);
+      this.products = value;
+      fieldSetFlags()[5] = true;
+      return this; 
+    }
+
+    /**
+      * Checks whether the 'products' field has been set.
+      * @return True if the 'products' field has been set, false otherwise.
+      */
+    public boolean hasProducts() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'products' field.
+      * @return This builder.
+      */
+    public com.jana.karim.avro.model.destination.CustomerInfo.Builder clearProducts() {
+      products = null;
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
     @Override
     public CustomerInfo build() {
       try {
@@ -344,6 +545,9 @@ public class CustomerInfo extends org.apache.avro.specific.SpecificRecordBase im
           record.name = fieldSetFlags()[1] ? this.name : (com.jana.karim.avro.model.destination.Name) defaultValue(fields()[1]);
         }
         record.addresses = fieldSetFlags()[2] ? this.addresses : (java.util.List<com.jana.karim.avro.model.destination.MailAddress>) defaultValue(fields()[2]);
+        record.product_description = fieldSetFlags()[3] ? this.product_description : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.price = fieldSetFlags()[4] ? this.price : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.products = fieldSetFlags()[5] ? this.products : (java.util.List<com.jana.karim.avro.model.destination.Product>) defaultValue(fields()[5]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

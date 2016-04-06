@@ -10,4 +10,14 @@ protocol UserData {
       union {null, string} city=null;
       union {null, string} name_id=null;
     }
+
+    record Product {
+
+        union {null, string} product_id=null;
+        union {null, string} name_id = null;
+        union {null, string} product_description = null;
+        union {null, string} price = null;
+
+     }
+
 }

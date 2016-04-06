@@ -6,13 +6,22 @@ protocol Customer {
       union {null, string} name = null;
       union {null, string} nickname = null;
     }
+
     record MailAddress {
       union {null, string} city = null;
     }
+
+    record Product {
+        union {null, string} product_description = null;
+        union {null, string} price = null;
+     }
 
     record CustomerInfo {
         string id;
         union {null, Name} name = null;
         union {null, array<MailAddress>} addresses = null;
-        }
+        union {null, string} product_description = null;
+        union {null, string} price = null;
+        union {null, array<Product>} products = null;
+     }
 }
